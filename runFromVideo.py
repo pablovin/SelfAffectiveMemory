@@ -21,6 +21,8 @@ import cv2
 from Utils import imageProcessingUtil, modelDictionary, modelLoader, GUIController
 import os
 import time
+import AffectiveMemory
+
 
 import csv
 
@@ -29,10 +31,12 @@ config = tf.ConfigProto()
 config.gpu_options.allow_growth=True
 sess = tf.Session(config=config)
 
+affectiveMemory = AffectiveMemory.AffectiveMemory() # Affective Memory
+
 
 
 loadVideosFrom = "/home/pablo/Documents/Datasets/wristbot/videos" #Folde where the videos are
-saveCSVFiles = "/home/pablo/Documents/Datasets/wristbot/csv" #Folder that will hold the .csv files
+saveCSVFiles = "/home/pablo/Documents/Datasets/wristbot/csvAffMem" #Folder that will hold the .csv files
 
 modelDimensional = modelLoader.modelLoader(modelDictionary.DimensionalModel) #Load neural network
 
@@ -73,14 +77,35 @@ for videoDirectory in os.listdir(loadVideosFrom): #for each video inside this fo
                     face = imageProcessing.preProcess(face,imageSize=(64,64))     # pre-process the face
 
                     dimensionalRecognition = numpy.array(modelDimensional.classify(face))    # Obtain dimensional classification
-                else: #if there is no face
-                    dimensionalRecognition = [-99,-99]
 
-                # print ("DImensional: " + str(dimensionalRecognition))
-                employee_writer.writerow([int(frameCount), dimensionalRecognition[0][0][0], dimensionalRecognition[1][0][0]])
+                    # use arousal/valence as input to the affective memory
+                    affectiveMemoryInput = numpy.array(dimensionalRecognition[:, 0, 0]).flatten()
+
+                    # If affective memory is not built, build it.
+                    if not affectiveMemory.isBuilt:
+                        # print ("BUild")
+                        affectiveMemory.buildModel(affectiveMemoryInput)
+                    # if affective memory is already built, train it with the new facial expression
+                    else:
+                        # print("train")
+                        affectiveMemory.train(affectiveMemoryInput)
+
+                    affectiveMemoryNodes, affectiveMemoryNodesAges = affectiveMemory.getNodes()
+
+                    valence = numpy.array(affectiveMemoryNodes)[:, 0]
+                    arousal = numpy.array(affectiveMemoryNodes)[:, 1]
+                    averageArousal = numpy.mean(arousal)
+                    averageValence = numpy.mean(valence)
+
+                else: #if there is no face
+                    averageArousal = -99
+                    averageValence = -99
+
+
+
+                employee_writer.writerow([int(frameCount), averageArousal, averageValence])
                 fpsCounter.append(1.0 / (time.time() - start_time))
-                # print("-- Frame: " + str(frameCount))
-                # print("FPS: ", 1.0 / (time.time() - start_time))  # FPS = 1 / time to process loop
+
 
 
     fpsAvg = numpy.array(fpsCounter).mean()

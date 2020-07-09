@@ -15,7 +15,6 @@ class AssociativeGWR:
 
     def initNetwork(self, dataSet, initMethod, logManager=None):
         self.numNodes = 2
-        print ("Shape: ", dataSet.shape)
         self.dimension = dataSet.shape[1]
         self.weights = np.zeros((self.numNodes, self.dimension))
         self.edges = np.ones((self.numNodes, self.numNodes))
