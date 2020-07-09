@@ -14,7 +14,7 @@ how to map the arousals and valences from the [Face Channel](https://github.com/
 
 **Webcam Demo**
 
-![Screenshot](Images/demo.png)
+![Screenshot](Images/Demo.gif)
 
 The demo displays the current arousal/valence output coming from the [FaceChannel](https://github.com/pablovin/FaceChannel), and the
 neurons learned by the affective memory. Each neuron is represented by a dot, and the brighter dot 
