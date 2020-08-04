@@ -92,8 +92,9 @@ for videoDirectory in os.listdir(loadVideosFrom): #for each video inside this fo
 
                     affectiveMemoryNodes, affectiveMemoryNodesAges = affectiveMemory.getNodes()
 
-                    valence = numpy.array(affectiveMemoryNodes)[:, 0]
-                    arousal = numpy.array(affectiveMemoryNodes)[:, 1]
+
+                    arousal = numpy.array(affectiveMemoryNodes)[:, 0]
+                    valence = numpy.array(affectiveMemoryNodes)[:, 1]
                     averageArousal = numpy.mean(arousal)
                     averageValence = numpy.mean(valence)
 

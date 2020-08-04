@@ -90,7 +90,6 @@ while(True):
             affectiveMemoryNodes, affectiveMemoryNodesAges = affectiveMemory.getNodes()
 
 
-
             # print the affective memory plot
 
             frame = GUIController.createAffectiveMemoryGUI(affectiveMemoryNodes, affectiveMemoryNodesAges, frame)
