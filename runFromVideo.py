@@ -33,16 +33,12 @@ sess = tf.Session(config=config)
 
 affectiveMemory = AffectiveMemory.AffectiveMemory() # Affective Memory
 
-
-
 loadVideosFrom = "/home/pablo/Documents/Datasets/wristbot/videos" #Folde where the videos are
 saveCSVFiles = "/home/pablo/Documents/Datasets/wristbot/csvAffMem" #Folder that will hold the .csv files
 
 modelDimensional = modelLoader.modelLoader(modelDictionary.DimensionalModel) #Load neural network
 
-
 imageProcessing = imageProcessingUtil.imageProcessingUtil()
-
 
 for videoDirectory in os.listdir(loadVideosFrom): #for each video inside this folder
 
@@ -92,7 +88,6 @@ for videoDirectory in os.listdir(loadVideosFrom): #for each video inside this fo
 
                     affectiveMemoryNodes, affectiveMemoryNodesAges = affectiveMemory.getNodes()
 
-
                     arousal = numpy.array(affectiveMemoryNodes)[:, 0]
                     valence = numpy.array(affectiveMemoryNodes)[:, 1]
                     averageArousal = numpy.mean(arousal)
@@ -101,7 +96,6 @@ for videoDirectory in os.listdir(loadVideosFrom): #for each video inside this fo
                 else: #if there is no face
                     averageArousal = -99
                     averageValence = -99
-
 
 
                 employee_writer.writerow([int(frameCount), averageArousal, averageValence])
