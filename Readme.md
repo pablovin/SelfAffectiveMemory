@@ -29,25 +29,17 @@ Install all the libraries on the requirements.txt file.
 
 **Related Publications**
 
-```sh
-Barros, P., Barakova, E., & Wermter, S. (2020). Adapting the Interplay between Personalized and Generalized Affect Recognition based on an Unsupervised Neural Framework. IEEE Transactions on Affective Computing.
-```
 
-```sh
-Barros, P., Parisi, G., & Wermter, S. (2019, May). A personalized affective memory model for improving emotion recognition. In International Conference on Machine Learning (pp. 485-494).
-```
+* Barros, P., Barakova, E., & Wermter, S. (2020). [Adapting the Interplay between Personalized and Generalized Affect Recognition based on an Unsupervised Neural Framework](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9117172). IEEE Transactions on Affective Computing.
+
+* P. Barros, N. Churamani and A. Sciutti (2020). [The FaceChannel: A Light-Weight Deep Neural Network for Facial Expression Recognition](https://arxiv.org/pdf/2004.08195), in 2020 15th IEEE International Conference on Automatic Face and Gesture Recognition (FG 2020) (FG), Buenos Aires, undefined, AR, 2020 pp. 449-453.
 
 
-```sh
-P. Barros, N. Churamani and A. Sciutti,  "The FaceChannel: A Light-Weight Deep Neural Network for Facial Expression Recognition.," in 2020 15th IEEE International Conference on Automatic Face and Gesture Recognition (FG 2020) (FG), Buenos Aires, undefined, AR, 2020 pp. 449-453.
-doi: 10.1109/FG47880.2020.00070
-keywords: {emotion recognition;deep learning}
-url: https://doi.ieeecomputersociety.org/10.1109/FG47880.2020.00070
-```
+* Barros, P., Parisi, G., & Wermter, S. (2019, May). [A personalized affective memory model for improving emotion recognition](http://proceedings.mlr.press/v97/barros19a/barros19a.pdf). In International Conference on Machine Learning (pp. 485-494).
 
-```sh
-Barros, P., & Wermter, S. (2017, May). A self-organizing model for affective memory. In 2017 International Joint Conference on Neural Networks (IJCNN) (pp. 31-38). IEEE.
-```
+
+* Barros, P., & Wermter, S. (2017, May). [A self-organizing model for affective memory](https://www2.informatik.uni-hamburg.de/wtm/publications/2017/BW17/Barros-Affective_Memory_2017-Webpage.pdf). In 2017 International Joint Conference on Neural Networks (IJCNN) (pp. 31-38). IEEE.
+
 
 **License**
 
